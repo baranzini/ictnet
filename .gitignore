@@ -1,0 +1,22 @@
+# boilerplate gitignore for Maven
+# source: https://github.com/github/gitignore/blob/master/Maven.gitignore
+
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+!/.mvn/wrapper/maven-wrapper.jar
+
+## Add custom lines below here
+
+# I don't think we want build artifacts checked in ... which is what bin/* appears to be
+bin
+
+.nvimlog
