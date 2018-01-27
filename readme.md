@@ -1,3 +1,8 @@
+# Info
+
+- [Install the cytoscape plugin here](http://apps.cytoscape.org/apps/ictnet2)
+- [Background Paper](https://www.ncbi.nlm.nih.gov/pubmed/26834985)
+
 # Dependencies
 
 - [Maven](https://www.vultr.com/docs/how-to-install-apache-maven-on-ubuntu-16-04)
