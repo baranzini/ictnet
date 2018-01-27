@@ -2,16 +2,18 @@ package org.cytoscape.ictnet2.internal;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import java.util.Properties;
+import java.io.InputStream;
+import java.io.IOException;
 
 public class DBConnector {
-	private static boolean conOK = false;
-	private static String CON_url;
+	private boolean conOK = false;
+	private String CON_URL;
 	//user name for remote MySQL database;
-	private static String CON_NAME;
+	private String CON_NAME;
 	//password for user
-	private static String CON_PWD;
-    private static String CON_DATABASE;
+	private String CON_PWD;
+    private String CON_DATABASE;
 	
 	private Connection connect = null;	
 	
@@ -24,9 +26,21 @@ public class DBConnector {
 	}	
 	
 	private void init(){				
+        Properties prop = new Properties();
+		try {
+        	prop.load(getClass().getClassLoader().getResourceAsStream("credentials.properties"));
+        } catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		System.out.println("Reading URL property:");
+		System.out.println(prop.getProperty("CON_URL"));
+		CON_URL = prop.getProperty("CON_URL");
+		CON_NAME = prop.getProperty("CON_NAME");
+		CON_PWD = prop.getProperty("CON_PWD");
+		CON_DATABASE = prop.getProperty("CON_DATABASE");
 		try{
 			Class.forName("com.mysql.jdbc.Driver");			
-			connect = DriverManager.getConnection(CON_url + CON_DATABASE, CON_NAME, CON_PWD);			
+			connect = DriverManager.getConnection(CON_URL + CON_DATABASE, CON_NAME, CON_PWD);			
 			conOK = true;	
 			System.out.println("iCTNet App: Connection to mySQL database is OK!");
 		}catch(ClassNotFoundException ex){
@@ -44,7 +58,7 @@ public class DBConnector {
 				init();				
 			}else if (connect.isClosed()){
 				Class.forName("com.mysql.jdbc.Driver");			
-				connect = DriverManager.getConnection(CON_url + CON_DATABASE, CON_NAME, CON_PWD);				
+				connect = DriverManager.getConnection(CON_URL + CON_DATABASE, CON_NAME, CON_PWD);				
 				conOK = true;
 			}//if-else	
 			return connect;
