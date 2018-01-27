@@ -9,6 +9,19 @@
 - [Cytoscape](http://www.cytoscape.org/download.php)
     - [ubuntu install instructions](http://www.network-science.org/cytoscape-download-install-ubuntu-linux-unix.html)
 
+# Credentials
+
+To connect to the database, you'll need the `credentials.properties` file, e.g:
+
+```
+CON_URL=jdbc:mysql://some.domain:1234/
+CON_NAME=wileycoyote
+CON_PWD=loyalacmecustomer
+CON_DATABASE=foo
+```
+
+This should be stored at `src/main/resources/credentials.properties`
+
 # Build
 
 To compile:
