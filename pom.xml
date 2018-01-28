@@ -11,7 +11,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.cytoscape.ictnet2</groupId>
 	<artifactId>ictnet2-cyaction-app</artifactId>
-	<version>2.0.3</version>
+	<version>2.0.4</version>
 
 			<name>${bundle.symbolicName}</name>
 	
