@@ -32,8 +32,6 @@ public class DBConnector {
         } catch (IOException ex) {
 			ex.printStackTrace();
 		}
-		System.out.println("Reading URL property:");
-		System.out.println(prop.getProperty("CON_URL"));
 		CON_URL = prop.getProperty("CON_URL");
 		CON_NAME = prop.getProperty("CON_NAME");
 		CON_PWD = prop.getProperty("CON_PWD");
